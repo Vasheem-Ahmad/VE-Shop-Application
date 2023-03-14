@@ -1,0 +1,47 @@
+/* Sidebar Filter CSS */
+
+.filter-wrapper {
+    .sort-by {
+        button[aria-expanded="false"]:after {
+            border-top: 0;
+            border-right: 2px solid $body-color;
+            border-bottom: 2px solid $body-color;
+            border-left: 0;
+            height: 10px;
+            width: 10px;
+            transform: rotate(45deg);
+            margin-top: -5px;
+        }
+
+        button[aria-expanded="true"]:after {
+            border-top: 2px solid $body-color;
+            border-left: 2px solid $body-color;
+            border-bottom: 0;
+            border-right: 0;
+            height: 10px;
+            width: 10px;
+            transform: rotate(45deg);
+            margin-top: 5px;
+        }
+
+        .dropdown-menu {
+            max-height: 270px;
+            li {
+                font-weight: 500;
+            }
+            li:hover:not(.active) {
+                background-color: rgba($custom-clr2, 0.1);
+            }
+            li.active {
+                background-color: rgb(253, 233, 242);
+            }
+        }
+    }
+
+    .filter-item-cover {
+        .accordion-body {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+    }
+}

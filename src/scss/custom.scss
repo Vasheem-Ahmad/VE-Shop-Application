@@ -1,0 +1,748 @@
+// Variable overrides first
+$primary: #f43397;
+$body-color: #333333;
+$custom-clr1: #999999;
+$custom-clr2: #666666;
+
+// Then import Bootstrap
+@import "/node_modules/bootstrap/scss/bootstrap";
+@import '/node_modules/bootstrap-icons/font/bootstrap-icons.css';
+@import "../pages/filter/ProductFilter.scss";
+
+// Font Family
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300&display=swap');
+
+html {
+	overflow-x: hidden;
+}
+
+html,
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.head-1 {
+	font-size: 30px;
+	font-weight: 700;
+
+	@include media-breakpoint-up(xxl) {
+		font-size: 48px;
+		line-height: 52px;
+	}
+
+	@include media-breakpoint-between(xl, xxl) {
+		font-size: 40px;
+	}
+
+	@include media-breakpoint-between(md, xl) {
+		font-size: 35px;
+	}
+}
+
+.head-2 {
+	font-size: 25px;
+	font-weight: 700;
+
+	@include media-breakpoint-up(xl) {
+		font-size: 36px;
+		line-height: 44px;
+	}
+
+	@include media-breakpoint-between(md, xl) {
+		font-size: 30px;
+	}
+}
+
+.head-3 {
+	font-size: 24px;
+	font-weight: 700;
+
+	@include media-breakpoint-up(xl) {
+		font-size: 32px;
+		line-height: 40px;
+	}
+
+	@include media-breakpoint-between(md, xl) {
+		font-size: 28px;
+	}
+}
+
+.head-4 {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 28px;
+}
+
+.head-5 {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.head-6 {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.title-label {
+	font-size: 12px;
+	color: $custom-clr2;
+}
+
+.txt-primary {
+	color: $primary;
+}
+
+.txt-secondary {
+	color: $custom-clr1;
+}
+
+.txt-secondary2 {
+	color: $custom-clr2;
+}
+
+.btn-custom {
+	color: $white;
+	background-color: $primary;
+	border-color: $primary;
+	min-height: 48px;
+
+	@include media-breakpoint-up(lg) {
+		font-size: 1.125rem;
+	}
+
+	&:hover,
+	&:active {
+		background-color: $primary !important;
+		color: $white !important;
+	}
+}
+
+.btn-custom-outline {
+	color: $primary;
+	background-color: transparent;
+	border-color: $primary;
+
+	&:hover,
+	&:active {
+		background-color: $primary !important;
+		color: $white !important;
+	}
+}
+
+.designed-heading {
+	position: relative;
+
+	&:before {
+		content: '';
+		height: 1px;
+		background: rgb(247, 168, 202);
+		width: 100%;
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+.accordion-button:not(.collapsed) {
+	color: initial;
+	background-color: initial;
+	box-shadow: none
+}
+
+.accordion-button:focus {
+	border: none;
+	box-shadow: none
+}
+
+// Common Slick Slider
+.custom-slick-slider {
+	.slick-arrow {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: $primary;
+		&:hover, &:focus {
+			color: #fff;
+			background-color: $primary;
+			opacity: 0.85;
+		}
+	}
+	.slick-prev{
+		left: -40px;
+		&:before {
+			content: '\F230';
+			font-family: 'bootstrap-icons';
+		}
+	}
+	.slick-next{
+		right: -40px;
+		&:before {
+			content: '\F234';
+			font-family: 'bootstrap-icons';
+		}
+	}
+}
+
+// Navbar Section CSS
+.main-header {
+	.top-header {
+		.for-mobile {
+			@include media-breakpoint-down(lg) {
+				flex: 1;
+			}
+		}
+
+		.nav-item {
+			a {
+				color: $body-color;
+				font-weight: 500;
+				text-transform: capitalize;
+			}
+
+			&:hover a {
+				color: $primary;
+			}
+		}
+
+		.navbar-brand {
+			color: $primary;
+		}
+
+		.dropdown:hover {
+			.dropdown-menu {
+				display: block;
+			}
+
+			.dropdown-menu-end {
+				right: 0;
+				left: auto;
+			}
+		}
+
+		.search-wrpr {
+			padding: 10px 15px;
+
+			@include media-breakpoint-up(xl) {
+				max-width: 400px;
+				width: 100%;
+			}
+
+			input {
+				&:focus {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			::placeholder {
+				/* Chrome, Firefox, Opera, Safari 10.1+ */
+				color: $custom-clr1;
+				font-weight: 500;
+				opacity: 1;
+				/* Firefox */
+			}
+
+			:-ms-input-placeholder {
+				/* Internet Explorer 10-11 */
+				color: $custom-clr1;
+				font-weight: 500;
+			}
+
+			::-ms-input-placeholder {
+				/* Microsoft Edge */
+				color: $custom-clr1;
+				font-weight: 500;
+			}
+
+			i {
+				color: $custom-clr1;
+			}
+		}
+
+		.navbar-nav {
+			.bdr-end {
+				@include media-breakpoint-up(lg) {
+					border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+				}
+			}
+		}
+
+		.download-app:hover a,
+		.whislist:hover a,
+		.profile:hover a {
+			svg path {
+				fill: $primary;
+			}
+		}
+
+		.cart:hover a {
+
+			path,
+			ellipse {
+				stroke: $primary;
+			}
+		}
+	}
+
+	.megamenu {
+		@include media-breakpoint-up(lg) {
+			border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+		}
+
+		ul>.nav-item {
+			@include media-breakpoint-down(lg) {
+				width: 100%;
+				position: relative;
+				border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+			}
+		}
+
+		.nav-item {
+			&:hover .dropdown-menu {
+				@include media-breakpoint-up(lg) {
+					display: block;
+					top: 100%;
+					left: 0;
+				}
+			}
+
+			&.dropdown {
+				@include media-breakpoint-up(lg) {
+					position: initial;
+				}
+			}
+
+			.dropdown-menu {
+				.col {
+					@include media-breakpoint-down(lg) {
+						flex: 0 0 auto;
+						width: 50%;
+						margin: 8px 0;
+					}
+				}
+			}
+		}
+
+		.navbar-nav>li>a {
+			color: $body-color;
+			font-weight: 500;
+			border-bottom: 2px solid transparent;
+			position: relative;
+
+			@include media-breakpoint-down(lg) {
+				&:after {
+					content: '\F282';
+					display: block;
+					font-family: 'bootstrap-icons';
+					font-size: 20px;
+					font-weight: 900;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					right: 0;
+				}
+			}
+		}
+
+		.navbar-nav>li:hover>a,
+		.navbar-nav>li>a.show {
+			color: $primary;
+			border-color: $primary;
+		}
+
+
+		.offcanvas {
+			.offcanvas-header {
+				background-color: $primary;
+				color: $white;
+
+				.btn-close {
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+// Bottom Navbar CSS
+.bottom-navbar {
+	.ve_logo {
+		width: 25px;
+		height: 25px;
+		background-color: $primary;
+		font-size: 12px;
+		font-weight: bold;
+	}
+
+	li {
+		font-weight: 500;
+	}
+}
+
+// Home Page Section CSS
+.bg-img-property {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.banner-section {
+	background-color: #f9f9f9;
+
+	.bnr-cnt {
+		.icon-wrpr img {
+			background: rgb(247, 168, 202);
+			width: 32px;
+			height: 32px;
+		}
+	}
+}
+
+// Fashion Section CSS
+.fashion-store {
+	// min-height: 546px;
+	background-size: cover;
+}
+
+// Essential Section CSS
+.essential-section {
+	background-position: bottom;
+
+	.essential-title {
+		color: #06735b;
+		font-weight: 900;
+	}
+
+	.btn-view-all {
+		background-color: #212221;
+		color: #fff;
+		text-transform: uppercase;
+
+		@include media-breakpoint-up(xl) {
+			min-height: 55px;
+			font-size: 1.25rem !important;
+		}
+	}
+
+	.essential-btn {
+		min-width: 140px;
+		color: #15785b;
+
+		@include media-breakpoint-up(xl) {
+			min-height: 50px;
+			font-size: 1.25rem !important;
+		}
+	}
+}
+
+// Reseller Section CSS
+.reseller-section {
+	.position-absolute {
+		@include media-breakpoint-down(md) {
+			position: static !important;
+		}
+	}
+
+	.reseller-subtitle {
+		color: #5585f8;
+	}
+
+	.reseller-title {
+		color: $primary;
+	}
+}
+
+// Register Supllier Section CSS
+.regis-suppl-section {
+	.srvc-wrapr {
+		.col {
+			@include media-breakpoint-down(md) {
+				border: 0 !important;
+			}
+		}
+	}
+
+	.sign-up-btn {
+		color: $primary;
+	}
+}
+
+
+// All Products Items CSS
+.prdct-item {
+	.prdct-img {
+		position: relative;
+
+		img {
+			height: 150px;
+			object-fit: contain;
+
+			@include media-breakpoint-up(md) {
+				height: 232px;
+			}
+		}
+	}
+
+	.prdct-name {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: $custom-clr1;
+	}
+}
+
+.sale-timer {
+	font-size: 12px;
+	font-weight: 600;
+	display: inline-block;
+	color: #ff6b3c;
+	background: rgb(255, 232, 205);
+	border-radius: 0px 4px 0px 0px;
+}
+
+.ve-trusted {
+	font-size: 12px;
+	font-weight: $font-weight-medium;
+	background-color: #f43297;
+	padding: 2px 10px;
+	color: #fff;
+	border-radius: 5px;
+}
+
+
+// Products Page CSS
+.product-page {
+	.prdct-img {
+
+		.image-gallery-content {
+			&.fullscreen {
+				img {max-height: calc(100vh - 160px)!important;}
+			}
+			.image-gallery-slide-wrapper {
+				border: 1px solid $border-color;
+				// border: 1px solid #d2d2d2;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+
+			.image-gallery-slide img {
+				max-height: 600px;
+				object-fit: contain;
+			}
+
+			.image-gallery-thumbnails-wrapper {
+				margin-top: 1.5rem;
+
+				.image-gallery-thumbnail-image {
+					max-height: 100px;
+					object-fit: contain;
+				}
+
+				.image-gallery-thumbnail {
+					border-width: 2px;
+					border-radius: 5px;
+
+					&.active,
+					&:hover,
+					&:focus {
+						border-color: $primary;
+					}
+				}
+			}
+		}
+	}
+
+	.prdct-dtls-wrpr {
+		.product-description p {
+			color: $custom-clr2;
+		}
+		.more-info-wrpr{
+			.info-label, .info-ans{
+				font-size: 12px;
+			}
+			.info-and{
+
+			}
+		}
+	}
+
+	.size-details {
+		.prdct-size {
+			border: 1px solid $body-color;
+			color: $body-color;
+			font-size: 1.125rem;
+			font-weight: $font-weight-medium;
+			padding: 5px 15px;
+			margin-right: 10px;
+			min-width: 45px;
+			text-align: center;
+			border-radius: 50px;
+			display: inline-block;
+			line-height: 1;
+
+			&.selected {
+				color: $primary;
+				border-color: $primary;
+				background-color: rgba($primary, 0.1);
+			}
+
+			&.sold-out {
+				position: relative;
+				color: $gray-400;
+				border-color: $gray-400;
+				text-decoration: line-through;
+
+				&:before {
+					content: '';
+					background: $gray-400;
+					width: 100%;
+					height: 1px;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+
+	.ratings-and-reviews {
+		.left-sec {
+			min-width: 120px;
+
+			.prdct-overall-rating {
+				i {
+					font-size: 25px;
+					margin-left: 8px;
+				}
+
+				small {
+					font-size: 0.750rem;
+				}
+			}
+		}
+
+		.rating-status {
+			color: $body-color;
+			font-size: 0.750rem;
+			min-width: 65px;
+		}
+
+		.progress {
+			height: 10px;
+		}
+
+		.total-rating {
+			color: $custom-clr1;
+			font-size: 0.750rem;
+			min-width: 50px;
+		}
+
+		.review-img {
+			img {
+				width: 72px;
+				min-width: 72px;
+				height: 72px;
+				object-fit: cover;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+		}
+
+		.user-review-details {
+			.user-img {
+				width: 25px;
+				height: 25px;
+			}
+
+			.user-post-date {
+				color: $custom-clr1;
+				font-size: 0.750rem;
+			}
+		}
+	}
+
+	.srvc-wrapr {
+		background-color: $blue-100;
+	}
+
+	// Review Offcanvas css
+	.offcanvas {
+		max-width: 600px;
+		width: 100%;
+	}
+	.review-img-wrapper {
+		img {
+			width: 100%;
+		}
+	}
+}
+
+// Footer Section CSS
+.bi-instagram {
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+	-webkit-background-clip: text;
+	/* Also define standard property for compatibility */
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+footer {
+	.about-sec {
+		.cmpny-desc {
+			color: $custom-clr2;
+			font-size: 1.125rem;
+		}
+	}
+
+	.link-sec {
+		ul {
+			list-style-type: none;
+			column-count: 2;
+
+			li a {
+				color: $custom-clr2;
+				font-weight: $font-weight-medium;
+
+				@include media-breakpoint-up(xl) {
+					font-size: 1.125rem;
+				}
+			}
+		}
+	}
+
+	.social-sec {
+		ul {
+			list-style-type: none;
+		}
+
+		li a {
+			font-size: 1.5rem;
+		}
+	}
+
+	.contact-sec {
+		.title-label a {
+			color: $custom-clr2;
+		}
+	}
+
+	.footer-desc {
+		.f-title {
+			font-size: 18px;
+			font-weight: $font-weight-medium;
+
+			@include media-breakpoint-up(md) {
+				font-size: 20px;
+				line-height: 28px;
+			}
+		}
+
+		.f-description {
+			font-size: 15px;
+		}
+	}
+
+}
